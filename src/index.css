@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+}
+/* .active{
+    border-bottom: 1px solid black;
+} */
+ body{
+    overflow-x: hidden;
+ }
+
+
+  
