@@ -3,14 +3,14 @@ import { PlayStation, Woman, Speaker, Perfume2 } from "../../../public/imgae";
 import { motion } from "framer-motion";
 const NewArrival = () => {
   return (
-    <div className="w-screen p-6 max-md:p-3">
+    <div className="w-screen p-6 ">
       <h1 className=" text-center text-xl space-x-2">
         <span>New </span>
         <span className=" text-blue-600 font-extrabold max-md:font-bold text-3xl max-md:text-2xl">
           Arrival
         </span>
       </h1>
-      <div className=" mt-5 max-md:mt-2 grid grid-cols-3 gap-4 max-md:text-base">
+      <div className=" mt-5 grid grid-cols-3 gap-4 max-md:text-base">
         {/* PlayStation image covering the first column and spanning two rows */}
         <div className="row-span-2 overflow-hidden cursor-pointer relative">
           <motion.img

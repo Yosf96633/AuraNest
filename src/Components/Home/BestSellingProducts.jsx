@@ -26,7 +26,7 @@ const BestSellingProducts = () => {
   }, []);
 
   return (
-    <div className=" grid grid-cols-1 my-4 max-md:mt-2 place-content-center max-w-[100vw] border-b-[0.5px] border-gray-400">
+    <div className=" grid grid-cols-1 my-10  place-content-center max-w-[100vw] border-b-[0.5px] border-gray-400">
       <h1 className=" text-center text-xl space-x-2">
         <span>Best </span>
         <span className=" text-blue-600 font-extrabold max-md:font-bold text-3xl max-md:text-2xl">

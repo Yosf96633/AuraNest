@@ -18,14 +18,14 @@ import {
 } from "react-icons/si";
 const Marquee = () => {
   return (
-    <div className="grid place-content-center mt-4">
+    <div className="grid place-content-center my-8">
       <h1 className=" text-center text-xl space-x-2 my-2">
         <span>Our</span>
         <span className=" text-blue-600 font-extrabold max-md:font-bold text-3xl max-md:text-2xl">
           Trusted Partners
         </span>
       </h1>
-      <div className=" container mx-auto space-y-8 max-md:space-y-5 mt-8 max-md:mt-3 overflow-x-hidden">
+      <div className=" container mx-auto space-y-10 mt-8 overflow-x-hidden">
         <div className=" flex space-x-32 max-md:space-x-16">
           <motion.div
             initial={{

@@ -37,7 +37,7 @@ const categories = [
 
 const Categories = () => {
   return (
-    <div className=' my-6 max-md:my-3 border-b-[0.5px] border-gray-400'>
+    <div className=' my-12 max-md:my-3 border-b-[0.5px] border-gray-400'>
         <h1 className=" text-center text-xl space-x-2 my-2">
           <span>
            Browse by
