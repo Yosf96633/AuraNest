@@ -8,9 +8,9 @@
     box-sizing: border-box;
     font-family: "Jost", sans-serif;
 }
-/* .active{
+.active{
     border-bottom: 1px solid black;
-} */
+}
  body{
     overflow-x: hidden;
  }

@@ -28,10 +28,10 @@ const NewArrival = () => {
             <h1 className=" text-2xl max-md:text-sm font-semibold text-white">
               PlayStation 5
             </h1>
-            <p className=" text-white max-md:text-xs">
+            <p className=" text-white max-md:text-xs max-sm:hidden">
               Black and White version of the <br /> PS5 coming out on sale.
             </p>
-            <span className=" text-white border-b-[1px] border-white max-md:text-xs">
+            <span className=" text-white border-b-[1px] border-white max-md:text-[0.45rem]">
               Shop Now
             </span>
           </div>
@@ -54,10 +54,10 @@ const NewArrival = () => {
             <h1 className=" text-2xl  max-md:text-sm font-semibold text-white">
                Women's Collection
             </h1>
-            <p className=" text-white max-md:text-xs">
+            <p className=" text-white max-md:text-xs max-sm:hidden">
             Featured woman collections <br /> that give you another vibe.
             </p>
-            <span className=" text-white max-md:text-xs border-b-[1px] border-white">
+            <span className=" text-white max-md:text-[0.45rem] border-b-[1px] border-white">
               Shop Now
             </span>
           </div>
@@ -80,10 +80,10 @@ const NewArrival = () => {
             <h1 className=" text-2xl max-md:text-sm font-semibold text-white">
               Speaker
             </h1>
-            <p className=" text-white max-md:text-xs">
+            <p className=" text-white max-md:text-xs max-sm:hidden">
             Amazon wireless speaker
             </p>
-            <span className=" text-white max-md:text-xs border-b-[1px] border-white">
+            <span className=" text-white max-md:text-[0.45rem] border-b-[1px] border-white">
               Shop Now
             </span>
           </div>
@@ -106,10 +106,10 @@ const NewArrival = () => {
             <h1 className=" text-2xl max-md:text-sm font-semibold text-white">
               Perfume
             </h1>
-            <p className=" text-white max-md:text-xs">
+            <p className=" text-white max-md:text-xs max-sm:hidden">
             Gucci intense oud edp
             </p>
-            <span className=" text-white max-md:text-xs border-b-[1px] border-white">
+            <span className=" text-white max-md:text-[0.45rem] border-b-[1px] border-white">
               Shop Now
             </span>
           </div>

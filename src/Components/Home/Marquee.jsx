@@ -25,7 +25,7 @@ const Marquee = () => {
           Trusted Partners
         </span>
       </h1>
-      <div className=" container mx-auto space-y-10 mt-8 overflow-x-hidden">
+      <div className=" container mx-auto space-y-20 max-md:space-y-12 mt-8 overflow-x-hidden">
         <div className=" flex space-x-32 max-md:space-x-16">
           <motion.div
             initial={{
@@ -35,7 +35,7 @@ const Marquee = () => {
               x: "-100%",
             }}
             transition={{
-              duration: 45,
+              duration: 55,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -57,7 +57,7 @@ const Marquee = () => {
               x: "-100%",
             }}
             transition={{
-              duration: 45,
+              duration: 55,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -81,7 +81,7 @@ const Marquee = () => {
               x: 0,
             }}
             transition={{
-              duration: 45,
+              duration: 55,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -103,7 +103,7 @@ const Marquee = () => {
               x: 0,
             }}
             transition={{
-              duration: 45,
+              duration: 55,
               repeat: Infinity,
               ease: "linear",
             }}

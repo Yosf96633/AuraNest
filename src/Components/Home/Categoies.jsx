@@ -46,14 +46,14 @@ const Categories = () => {
           Category
         </span>
       </h1>
-         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4">
+         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4 my-8">
       {categories.map((category) => (
         <div key={category.id} className="flex items-center p-4 border rounded shadow bg-white">
           <div className="mr-3 text-2xl">
             {category.icon}
           </div>
           <div>
-            <h2 className="text-lg font-semibold">{category.name}</h2>
+            <h2 className="text-lg font-semibold max-md:text-sm max-md:font-light">{category.name}</h2>
           </div>
         </div>
       ))}

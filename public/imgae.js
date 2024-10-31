@@ -6,4 +6,5 @@ import Perfume2 from "./Perfume2.png";
 import PlayStation from "./PlayStation.png"
 import Woman from "./Woman.png";
 import Speaker from "./Speaker.png"
-export { iphone, laptop, perfume, skincare , Perfume2 , PlayStation , Woman , Speaker };
+import about from "./about.png"
+export { iphone, laptop, perfume, skincare , Perfume2 , PlayStation , Woman , Speaker , about};

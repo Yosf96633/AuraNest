@@ -1,5 +1,5 @@
 import React from "react";
-import { Hero  , FlashSales , Categoies , BestSellingProducts, NewArrival, Marquee, Features, Footer} from "../Components/index";
+import { Hero  , FlashSales , Categoies , BestSellingProducts, NewArrival, Marquee, Features} from "../Components/index";
 const Home = () => {
   return (
     <div className=" w-full  ">
@@ -10,7 +10,6 @@ const Home = () => {
       <NewArrival/>
       <Marquee/>
       <Features/>
-      <Footer/>
     </div>
   );
 };
