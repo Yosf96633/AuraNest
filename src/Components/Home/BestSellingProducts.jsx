@@ -5,6 +5,7 @@ import { add_bestSellingProducts } from "../../../Redux/bestSellingProducts";
 import { Rate, Button } from "antd";
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from "react-router-dom"; // Import Link for navigation
+import { add_favorite } from "../../../Redux/favorite";
 
 const BestSellingProducts = () => {
   const bestSellingProducts = useSelector((state) => {
@@ -28,24 +29,6 @@ const BestSellingProducts = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  // Function to handle adding to favourites
-  const addToFavourites = (product) => {
-    const existingFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
-    const isFavourite = existingFavourites.some(item => item.id === product.id);
-    
-    if (!isFavourite) {
-      existingFavourites.push(product);
-      localStorage.setItem('favourites', JSON.stringify(existingFavourites)); // Store updated favourites
-      notification.success({
-        message: "Added to Favourites", // Show success toast
-      });
-    } else {
-      notification.info({
-        message: "Already in Favourites", // Show duplicate toast
-      });
-    }
-  };
 
   return (
     <div>
@@ -79,7 +62,10 @@ const BestSellingProducts = () => {
                 <br />
                 <div className="space-x-1">
                   <Button
-                    onClick={() => addToFavourites(product)} // Call addToFavourites function
+                    onClick={()=>{
+                        dispatch(add_favorite(product));
+                        notification.success({message : "Add to Favorite"})
+                    }}
                     icon={<AiOutlineHeart />}
                   >
                     Favourite

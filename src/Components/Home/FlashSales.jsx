@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Spin, notification } from "antd"; // Import notification for displaying alerts
 import { useDispatch, useSelector } from "react-redux";
 import { add_flashSales } from "../../../Redux/flashsale";
+import { add_favorite } from "../../../Redux/favorite";
 import { Rate, Button } from "antd";
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 
@@ -26,24 +27,6 @@ const FlashSales = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  // Function to handle adding to favourites
-  const addToFavourites = (product) => {
-    const existingFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
-    const isFavourite = existingFavourites.some(item => item.id === product.id);
-    
-    if (!isFavourite) {
-      existingFavourites.push(product);
-      localStorage.setItem('favourites', JSON.stringify(existingFavourites)); // Store updated favourites
-      notification.success({
-        message: "Added to Favourites", // Show success toast
-      });
-    } else {
-      notification.info({
-        message: "Already in Favourites", // Show duplicate toast
-      });
-    }
-  };
 
   return (
     <div className="grid grid-cols-1 my-6 place-content-center max-w-[100vw] border-b-[0.5px] border-gray-400">
@@ -76,7 +59,10 @@ const FlashSales = () => {
               <br />
               <div className="space-x-1">
                 <Button
-                  onClick={() => addToFavourites(product)} // Call addToFavourites function
+                  onClick={()=>{
+                    dispatch(add_favorite(product));
+                    notification.success({message : "Add to Favorite"})
+                  }}
                   icon={<AiOutlineHeart />}
                 >
                   Favourite

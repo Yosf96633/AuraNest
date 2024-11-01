@@ -1,23 +1,22 @@
 import React from 'react';
-import { Rate, Button, message } from 'antd';
+import {  Button, } from 'antd';
 import { AiOutlineDelete , AiOutlineLeft  } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useSelector , useDispatch } from 'react-redux';
+import { delete_favorite } from '../../Redux/favorite';
 const Favorite = () => {
-  // Retrieve favourites from local storage
-  const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
-
-  const removeFavourite = (productId) => {
-    const updatedFavourites = favourites.filter(item => item.id !== productId);
-    localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
-    message.success("Product removed from favourites."); // Show success message
-    window.location.reload(); // Reload to update UI
-  };
+  const dispatch = useDispatch()
+  let favorites = [];
+   favorites = useSelector((state)=>{
+    return state.favorite
+    
+  })
      const navigate = useNavigate();
   return (
     <div className=" mx-auto my-10">
       <h1 className="text-center text-2xl font-bold mb-6">Yours <span className=' text-blue-600 text-3xl'>Favorite choices</span></h1> {/* Unique title */}
-      {favourites.length === 0 ? (
+      {favorites.length === 0 ? (
         <div className=" w-screen h-[70vh] grid place-content-center space-y-4"><p>No favourites added yet.</p>
          <div className=' flex justify-center'>
          <AiOutlineLeft className=' text-3xl cursor-pointer' onClick={()=>{
@@ -27,7 +26,7 @@ const Favorite = () => {
         </div>
       ) : (
         <div className="flex flex-col min-h-[70vh] space-y-4 py-7 px-4"> {/* Use flex column layout */}
-          {favourites.map((product, index) => (
+          {favorites.map((product, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.8 }} // Initial state
@@ -51,7 +50,9 @@ const Favorite = () => {
               <Button
                 type="text"
                 icon={<AiOutlineDelete />}
-                onClick={() => removeFavourite(product.id)}
+                onClick={() => {
+                   dispatch(delete_favorite(product.id))
+                }}
                 className="ml-4"
               >
                 Remove
@@ -61,6 +62,7 @@ const Favorite = () => {
         </div>
       )}
     </div>
+  
   );
 };
 
