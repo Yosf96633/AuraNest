@@ -36,7 +36,7 @@ const Cart = () => {
           </Button>
         </div>
       ) : (
-        <div className="space-y-6 mt-6">
+        <div className="space-y-6 mt-6 min-h-[70vh]">
           {cart.map((item) => (
             <motion.div
               key={item.id}
@@ -97,7 +97,11 @@ const Cart = () => {
             </motion.div>
           ))}
 
-          <div className="flex flex-col-reverse items-end  mt-6">
+          <div className=" flex justify-between mt-6">
+          <Button onClick={()=>{
+            navigate("/")
+          }} icon={<AiOutlineLeft/>}>Continue Shopping</Button>
+          <div className="flex flex-col-reverse items-end">
           <Button
               type="primary"
               icon={<FaShoppingBag />}
@@ -108,10 +112,12 @@ const Cart = () => {
               Buy Now
             </Button>
             <br />
-            <div className="text-lg font-normal mt-4">
+            <div className="text-lg font-normal">
               Total Price: <span className="text-blue-600 text-2xl font-semibold">${totalPrice.toFixed(2)}</span>
             </div>
     
+          </div>
+
           </div>
         </div>
       )}

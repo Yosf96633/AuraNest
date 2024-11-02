@@ -6,7 +6,7 @@ import { add_favorite } from "../../../Redux/favorite";
 import { Rate, Button } from "antd";
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { add_cart } from "../../../Redux/cart";
-
+import { Link } from "react-router-dom";
 const FlashSales = () => {
   const flashSale = useSelector((state) => {
     return state.flashSale;
@@ -44,9 +44,11 @@ const FlashSales = () => {
       ) : (
         <div className="my-3 flex space-x-6 max-md:space-x-3 overflow-x-scroll">
           {flashSale[0].map((product, i) => (
-            <div key={i} className="flex-shrink-0 flex space-y-4 max-md:space-y-2 flex-col justify-center items-center space-x-2 p-6 max-md:p-2">
-              <img className="object-cover size-3/5 max-md:size-2/5" src={product.thumbnail} alt={product.title} />
+            <div key={i} className="flex-shrink-0 flex space-y-2 flex-col justify-center items-center space-x-2 p-6 max-md:p-2">
+             <Link className=" size-[100%] flex flex-col space-y-4 justify-center items-center" to={`/products/${product.id}`}>
+               <img className="object-cover size-3/5 max-md:size-2/5" src={product.thumbnail} alt={product.title} />
               <h1 className="text-xl max-md:text-base text-wrap font-bold">{product.brand ? product.brand : product.title}</h1>
+              </Link>
               <p className="space-x-2">
                 <span className="font-bold text-lg text-blue-600">
                   ${ (product.price - (product.price * product.discountPercentage) / 100).toFixed(2) }
@@ -54,7 +56,7 @@ const FlashSales = () => {
                 <span className="text-gray-500 text-base line-through">{product.price}</span>
               </p>
               <div>
-                <Rate disabled value={product.rating} />
+                <Rate allowHalf disabled value={product.rating} />
                 <span>{`(${product.rating})`}</span>
               </div>
               <br />

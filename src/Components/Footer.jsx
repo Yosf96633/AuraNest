@@ -3,7 +3,7 @@ import { SiFacebook, SiInstagram, SiX, SiLinkedin } from 'react-icons/si';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 border-t-[1px] border-black py-10 mt-10">
+    <footer className="bg-gray-200 border-t-[1px] border-black py-10 mt-10 max-md:text-xs max-sm:px-6">
       <div className="container mx-auto flex flex-wrap justify-between">
         <div className="w-full md:w-1/4 mb-6">
           <h2 className="text-xl font-bold mb-2">AuraNest</h2>

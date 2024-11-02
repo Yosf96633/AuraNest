@@ -47,8 +47,10 @@ const BestSellingProducts = () => {
           <div className="my-3 flex space-x-6 max-md:space-x-3 overflow-x-scroll">
             {bestSellingProducts[0].map((product, i) => (
               <div key={i} className="flex-shrink-0 flex space-y-4 max-md:space-y-2 flex-col justify-center items-center space-x-2 p-6 max-md:p-2">
+                <Link to={`/products/${product.id}`} className=" size-[100%] flex flex-col space-y-4 justify-center items-center">
                 <img className="object-cover size-3/5 max-md:size-2/5" src={product.thumbnail} alt={product.title} />
                 <h1 className="text-xl max-md:text-base text-wrap font-bold">{product.title}</h1>
+                </Link>
                 <p className="space-x-2">
                   <span className="font-bold text-lg text-blue-600">
                     ${ (product.price - (product.price * product.discountPercentage) / 100).toFixed(2) }
@@ -56,7 +58,7 @@ const BestSellingProducts = () => {
                   <span className="text-gray-500 text-base line-through">{product.price}</span>
                 </p>
                 <div>
-                  <Rate disabled value={product.rating} />
+                  <Rate allowHalf disabled value={product.rating} />
                   <span>{`(${product.rating})`}</span>
                 </div>
                 <br />

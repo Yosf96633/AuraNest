@@ -18,7 +18,7 @@ const Header = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   return (
-    <header className=' flex items-center  justify-between py-6 px-10 max-md:py-5 max-md:px-7 border-b-[1px]'>
+    <header className=' flex items-center  justify-between py-6 px-10 max-md:py-4 max-md:px-6 border-b-[1px]'>
           <h1 onClick={()=>{
             navigate("/")
           }} className=' cursor-pointer text-3xl max-md:text-xl font-semibold'>AuraNest</h1>
@@ -27,7 +27,7 @@ const Header = () => {
                 <NavLink to={"/about"}>About</NavLink>
                 <NavLink to={"/contact"}>Contact</NavLink>
           </nav>
-        <div className=' flex space-x-3 items-center'>
+        <div className=' flex space-x-5 items-center'>
              <Input.Search className=' max-md:hidden block'  placeholder='What are you looking for?'/>
              
      <Tooltip title="Favorite" placement='top'>
