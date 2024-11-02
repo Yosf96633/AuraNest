@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from 'react-icons/ai';
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { toggle } from "../../Redux/SlideMenu";
 
 const SlideMenu = () => {
+    const slideMenu = useSelector((state)=>{
+        return state.SlideMenu;
+    })
+    useEffect(() => {
+        if (slideMenu) {
+            document.querySelector("body").style.overflowY = "hidden";
+        } else {
+            document.querySelector("body").style.overflowY = "scroll";
+        }
+
+        // Clean up to reset overflow when the component unmounts
+        return () => {
+            document.querySelector("body").style.overflowY = "scroll";
+        };
+    }, [slideMenu]); // Add slideMenu as a dependency
     const parent = {
         initial:{
             width:"0vw",

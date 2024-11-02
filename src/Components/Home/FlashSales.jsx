@@ -5,6 +5,7 @@ import { add_flashSales } from "../../../Redux/flashsale";
 import { add_favorite } from "../../../Redux/favorite";
 import { Rate, Button } from "antd";
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
+import { add_cart } from "../../../Redux/cart";
 
 const FlashSales = () => {
   const flashSale = useSelector((state) => {
@@ -68,7 +69,10 @@ const FlashSales = () => {
                   Favourite
                 </Button>
                 <Button
-                  onClick={() => notification.success({ message: "Add to Cart" })}
+                  onClick={() => {
+                    dispatch(add_cart({...product , quantityOfItem : 1}))
+                    notification.success({ message: "Add to Cart" })
+                  }}
                   icon={<AiOutlineShoppingCart />}
                 >
                   Cart

@@ -5,14 +5,15 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { Main, Home, Contact, About , Favorite } from "./Pages/page";
+import { Main, Home, Contact, About , Favorite , Cart } from "./Pages/page";
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Main/>}>
-      <Route index element={<Home/>} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/favorite" element={<Favorite/>} />
+      <Route index element={<Home/>}/>
+      <Route path="/contact" element={<Contact />}/>
+      <Route path="/about" element={<About />}/>
+      <Route path="/favorite" element={<Favorite/>}/>
+      <Route path="/cart" element={<Cart/>}/>
 
     </Route>
   )

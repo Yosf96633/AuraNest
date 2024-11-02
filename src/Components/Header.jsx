@@ -12,10 +12,13 @@ const Header = () => {
     return(state.SlideMenu);
     
   })
+  const cart = useSelector((state) =>{
+    return state.cart;
+  })
   const navigate = useNavigate()
   const dispatch = useDispatch()
   return (
-    <header className=' flex items-center justify-between py-4 max-md:py-2 px-6 max-md:px-4 border-b-[1px]'>
+    <header className=' flex items-center  justify-between py-6 px-10 max-md:py-5 max-md:px-7 border-b-[1px]'>
           <h1 onClick={()=>{
             navigate("/")
           }} className=' cursor-pointer text-3xl max-md:text-xl font-semibold'>AuraNest</h1>
@@ -33,8 +36,10 @@ const Header = () => {
      }} className="size-7 cursor-pointer max-md:size-5" title="Favorite" />
      </Tooltip>
      <Tooltip title="Cart" placement='top'>
-     <Badge count={0} showZero style={{ backgroundColor: 'red' }}>
-      <AiOutlineShoppingCart className="size-6 cursor-pointer max-md:size-5" title="Cart" />
+     <Badge count={cart.length} showZero style={{ backgroundColor: 'red' }}>
+      <AiOutlineShoppingCart onClick={()=>{
+      navigate("/cart");
+     }} className="size-6 cursor-pointer max-md:size-5" title="Cart" />
       </Badge>
      </Tooltip>
     <FiMenu onClick={()=>{

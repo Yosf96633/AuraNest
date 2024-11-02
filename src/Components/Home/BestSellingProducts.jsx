@@ -6,7 +6,7 @@ import { Rate, Button } from "antd";
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from "react-router-dom"; // Import Link for navigation
 import { add_favorite } from "../../../Redux/favorite";
-
+import { add_cart } from "../../../Redux/cart";
 const BestSellingProducts = () => {
   const bestSellingProducts = useSelector((state) => {
     return state.bestSellingProducts;
@@ -71,7 +71,10 @@ const BestSellingProducts = () => {
                     Favourite
                   </Button>
                   <Button
-                    onClick={() => notification.success({ message: "Add to Cart" })}
+                   onClick={() => {
+                    dispatch(add_cart({...product , quantityOfItem : 1}))
+                    notification.success({ message: "Add to Cart" })
+                  }}
                     icon={<AiOutlineShoppingCart />}
                   >
                     Cart

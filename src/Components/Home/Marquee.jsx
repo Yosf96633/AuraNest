@@ -35,7 +35,7 @@ const Marquee = () => {
               x: "-100%",
             }}
             transition={{
-              duration: 55,
+              duration: 60,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -57,7 +57,7 @@ const Marquee = () => {
               x: "-100%",
             }}
             transition={{
-              duration: 55,
+              duration: 60,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -81,7 +81,7 @@ const Marquee = () => {
               x: 0,
             }}
             transition={{
-              duration: 55,
+              duration: 60,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -103,7 +103,7 @@ const Marquee = () => {
               x: 0,
             }}
             transition={{
-              duration: 55,
+              duration: 60,
               repeat: Infinity,
               ease: "linear",
             }}
