@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { NavLink , useNavigate} from 'react-router-dom'
-import { Input , Badge , Tooltip} from 'antd'
+import { Input  ,  Badge , Tooltip , message} from 'antd'
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi'; // From Feather Icons
 import {  useDispatch  , useSelector} from 'react-redux';
@@ -8,6 +8,7 @@ import { toggle } from "../../Redux/SlideMenu"
 import { SlideMenu } from "../Components/index"
 import { AnimatePresence } from 'framer-motion';
 const Header = () => {
+  const ref = useRef()
   const slideMenu = useSelector((state)=>{
     return(state.SlideMenu);
     
@@ -28,7 +29,15 @@ const Header = () => {
                 <NavLink to={"/contact"}>Contact</NavLink>
           </nav>
         <div className=' flex space-x-5 items-center'>
-             <Input.Search className=' max-md:hidden block'  placeholder='What are you looking for?'/>
+             <Input.Search ref={ref} onSearch={(e)=>{
+              if(e)
+              {
+                navigate(`/search?query=${e}`)
+                ref.current.input.value = ""
+              }
+                else
+                message.warning("Search field should'nt be empty")
+             }} className=' max-md:hidden block'  placeholder='What are you looking for?'/>
              
      <Tooltip title="Favorite" placement='top'>
      <AiOutlineHeart onClick={()=>{

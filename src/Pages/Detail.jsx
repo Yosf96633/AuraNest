@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
 import { Button, Spin, Rate , message} from "antd";
 import { AiOutlineHeart , AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaShoppingBag } from 'react-icons/fa';
@@ -8,6 +8,7 @@ import { add_favorite } from "../../Redux/favorite";
 import { add_cart } from "../../Redux/cart";
 import { motion } from "framer-motion";
 const Detail = () => {
+  const navigate = useNavigate();
     const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
   const { id } = useParams();
@@ -36,7 +37,7 @@ const Detail = () => {
         <div className=" w-screen min-h-[100vh] my-8">
           <h1 className="text-xl text-center font-semibold max-md:text-base max-md:font-normal">
             Discover{" "}
-            <span className=" text-blue-600 font-bold">{`${product.title}`}</span>{" "}
+            <span className=" text-blue-600 font-bold px-4">{`${product.title}`}</span>{" "}
             - A Must-Have!
           </h1>
           <div className=" my-12 max-md:my-6 flex w-screen justify-evenly flex-wrap-reverse px-6">
@@ -75,7 +76,7 @@ const Detail = () => {
               <div>
                 <p className=" text-xs border-b-[0.5px] border-gray-300 pb-8">*{product.returnPolicy}</p>
               </div>
-              <div className=" flex justify-around ">
+              <div className=" flex justify-around py-4">
                 <Button onClick={()=>{
              dispatch(add_favorite(product))
              message.success("Add to Favorite" , 1.5)
@@ -84,7 +85,10 @@ const Detail = () => {
              dispatch(add_cart({...product , quantityOfItem:1}))
              message.success("Add to cart" , 1.5)
                 }} icon={<AiOutlineShoppingCart/>}>Cart</Button>
-                <Button icon={<FaShoppingBag/>}>Buy now</Button>
+                <Button icon={<FaShoppingBag/>} onClick={()=>{
+                   dispatch(add_cart({...product , quantityOfItem : 1}))
+                   navigate("/user_details")
+                }}>Buy now</Button>
                 
               </div>
             </div>
@@ -96,7 +100,7 @@ const Detail = () => {
               <div className=" flex flex-wrap justify-center items-center space-y-8 mt-4 px-6">
                 {
                     product.reviews!==0 && product.reviews.map((_ , i)=>{
-                        return <div className=" flex text-base mx-6 items-center justify-center border-b-[0.5px] border-gray-400 p-6 flex-col" key={i}>
+                        return <div className=" flex text-base font-thin mx-6 items-center justify-center border-b-[0.5px] border-gray-400 p-6 flex-col" key={i}>
                               <div>
                                    <h1>{_.reviewerName}</h1>
                                    <p>{_.reviewerEmail}</p>

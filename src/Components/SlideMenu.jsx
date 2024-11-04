@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch , useSelector } from "react-redux";
 import { toggle } from "../../Redux/SlideMenu";
-
+import { Input } from "antd";
 const SlideMenu = () => {
+    const navigate = useNavigate()
     const slideMenu = useSelector((state)=>{
         return state.SlideMenu;
     })
@@ -37,7 +38,7 @@ const SlideMenu = () => {
         exit: {
             width: "0vw",
             transition: {
-                duration: 0.45,
+                duration: 0.2,
                 ease: "linear",
                 staggerChildren: 0.1,
                 delay:0.35
@@ -61,7 +62,7 @@ const SlideMenu = () => {
             opacity: 0,
             y: "100%",  // Move down before exiting
             transition: {
-                duration: 0.1,
+                duration: 0.05,
                 ease: "linear",
             },
         },
@@ -96,6 +97,18 @@ const SlideMenu = () => {
          <Link onClick={()=>{
              dispatch(toggle(false))
         }} to={"/contact"}>Contact</Link>
+         </motion.div>
+         <motion.div variants={child} className=" px-12 text-2xl font-bold my-8 text-center">
+         <Input.Search onSearch={(e)=>{
+              if(e)
+              {
+                navigate(`/search?query=${e}`)
+                dispatch(toggle(false))
+              }
+                else
+                message.warning("Search field should'nt be empty")
+             }} placeholder='What are you looking for?'/>
+             
          </motion.div>
 
     </motion.div>

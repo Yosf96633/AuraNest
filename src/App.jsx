@@ -5,7 +5,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { Main, Home, Contact, About , Favorite , Cart, Detail } from "./Pages/page";
+import { Main, Home, Contact, About , Favorite , Cart, Detail , Cartgory, User_Details, Search } from "./Pages/page";
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Main/>}>
@@ -15,7 +15,9 @@ const route = createBrowserRouter(
       <Route path="/about" element={<About />}/>
       <Route path="/favorite" element={<Favorite/>}/>
       <Route path="/cart" element={<Cart/>}/>
-
+      <Route path="/category/:id" element={<Cartgory/>}/>
+       <Route path="/user_details" element={<User_Details/>}/>
+       <Route path="/search" element={<Search/>}/>
     </Route>
   )
 );

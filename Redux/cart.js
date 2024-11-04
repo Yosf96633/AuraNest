@@ -24,9 +24,12 @@ const cart = createSlice({
             return _;
         })
     },
+    empty : (state , action) =>{
+             return state = [];
+    }
   },
 });
 
 export default cart.reducer;
 
-export const { add_cart, delete_cart , increament , decreament } = cart.actions;
+export const { add_cart, delete_cart , increament , decreament , empty } = cart.actions;

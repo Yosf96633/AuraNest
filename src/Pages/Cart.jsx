@@ -106,7 +106,7 @@ const Cart = () => {
               type="primary"
               icon={<FaShoppingBag />}
               onClick={()=>{
-                  navigate("/billing");
+                  navigate("/user_details");
               }}
             >
               Buy Now

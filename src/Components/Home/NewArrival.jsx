@@ -1,8 +1,12 @@
 import React from "react";
 import { PlayStation, Woman, Speaker, Perfume2 } from "../../../public/imgae";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 const NewArrival = () => {
+  const naviagte = useNavigate();
   return (
+
     <div className="w-screen p-6 ">
       <h1 className=" text-center text-xl space-x-2">
         <span>New </span>
@@ -12,7 +16,9 @@ const NewArrival = () => {
       </h1>
       <div className=" mt-5 grid grid-cols-3 gap-4 max-md:text-base">
         {/* PlayStation image covering the first column and spanning two rows */}
-        <div className="row-span-2 overflow-hidden cursor-pointer relative">
+        <div onClick={()=>{
+           naviagte(`/products/${4}`)
+        }} className="row-span-2 overflow-hidden cursor-pointer relative">
           <motion.img
             whileHover={{
               scale: 1.05,
@@ -38,7 +44,9 @@ const NewArrival = () => {
         </div>
 
         {/* Woman image spanning columns 2 to 3, first row */}
-        <div className="col-span-2 overflow-hidden cursor-pointer relative">
+        <div onClick={()=>{
+            naviagte("/category/womens-dresses")
+        }} className="col-span-2 overflow-hidden cursor-pointer relative">
           <motion.img
             whileHover={{
               scale: 1.05,
@@ -64,7 +72,9 @@ const NewArrival = () => {
         </div>
 
         {/* Wireless Speaker image in column 2, second row */}
-        <div className=" overflow-hidden cursor-pointer relative">
+        <div onClick={()=>{
+           naviagte("/products/99")
+        }} className=" overflow-hidden cursor-pointer relative">
           <motion.img
             whileHover={{
               scale: 1.05,
@@ -90,7 +100,9 @@ const NewArrival = () => {
         </div>
 
         {/* Perfume image in column 3, second row */}
-        <div className=" overflow-hidden cursor-pointer relative">
+        <div  onClick={()=>{
+           naviagte("/products/10")
+        }}  className=" overflow-hidden cursor-pointer relative">
           <motion.img
             whileHover={{
               scale: 1.05,
