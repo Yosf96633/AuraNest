@@ -53,7 +53,7 @@ const Search = () => {
                     {totalResults > 0 ? (
                         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4'>
                             {currentResults.map(product => (
-                                <div key={product.id} className="flex-shrink-0 flex flex-col space-y-2 justify-center items-center p-6 border rounded shadow bg-white">
+                                <div key={product.id} className="flex-shrink-0 flex flex-col space-y-2 justify-center items-center p-1 py-3 border rounded shadow bg-white">
                                     <Link className="flex flex-col space-y-4 justify-center items-center" to={`/products/${product.id}`}>
                                         <img className="object-cover w-3/5" src={product.thumbnail} alt={product.title} />
                                         <h1 className="text-xl max-sm:text-base text-center font-bold">
@@ -97,7 +97,7 @@ const Search = () => {
                             ))}
                         </div>
                     ) : (
-                        <h2 className='text-center text-xl'>No results found for "{searchQuery}".</h2>
+                       <div className=' h-screen w-screen grid place-content-center'> <h2 className='text-center text-xl'>No results found for "{searchQuery}".</h2></div>
                     )}
                     {totalResults > ITEMS_PER_PAGE && (
                         <div className='mt-4 flex justify-center'>

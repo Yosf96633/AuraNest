@@ -14,34 +14,7 @@ const NewArrival = () => {
           Arrival
         </span>
       </h1>
-      <div className=" mt-5 grid grid-cols-3 gap-4 max-md:text-base">
-        {/* PlayStation image covering the first column and spanning two rows */}
-        <div onClick={()=>{
-           naviagte(`/products/${4}`)
-        }} className="row-span-2 overflow-hidden cursor-pointer relative">
-          <motion.img
-            whileHover={{
-              scale: 1.05,
-            }}
-            transition={{
-              duration: 0.5,
-            }}
-            className="object-cover w-full h-full"
-            src={PlayStation}
-            alt="PlayStation"
-          />
-          <div className=" absolute left-0 bottom-0 m-4 max-md:m-2">
-            <h1 className=" text-2xl max-md:text-sm font-semibold text-white">
-              PlayStation 5
-            </h1>
-            <p className=" text-white max-md:text-xs max-sm:hidden">
-              Black and White version of the <br /> PS5 coming out on sale.
-            </p>
-            <span className=" text-white border-b-[1px] border-white max-md:text-[0.45rem]">
-              Shop Now
-            </span>
-          </div>
-        </div>
+      <div className=" mt-5 w-[50vw] grid grid-cols-2 place-content-center gap-4 max-md:text-base size-[60vw] max-sm:size-[90vw]">
 
         {/* Woman image spanning columns 2 to 3, first row */}
         <div onClick={()=>{

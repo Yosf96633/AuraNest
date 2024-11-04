@@ -34,7 +34,7 @@ const Cartgory = () => {
   }, [id]);
 
   return (
-    <div className='min-h-screen w-screen my-6 px-6'>
+    <div className='min-h-screen w-screen my-6 px-6 max-sm:px-2'>
       <h1 className='py-6 text-center text-xl font-semibold'>
         Best products of <span className='text-blue-500 font-bold'>{id}</span>
       </h1>
@@ -45,7 +45,7 @@ const Cartgory = () => {
       ) : (
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4'>
           {products.map((product) => (
-            <div key={product.id} className="flex-shrink-0 flex flex-col space-y-2 justify-center items-center p-6 border rounded shadow bg-white">
+            <div key={product.id} className="flex-shrink-0 flex flex-col py-3 space-y-2 justify-center items-center p-1 border rounded shadow bg-white">
               <Link className="flex flex-col space-y-4 justify-center items-center" to={`/products/${product.id}`}>
                 <img className="object-cover w-3/5" src={product.thumbnail} alt={product.title} />
                 <h1 className="text-xl max-sm:text-base text-center font-bold">{product.brand ? product.brand : product.title}</h1>

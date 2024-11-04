@@ -29,16 +29,16 @@ const SlideMenu = () => {
         animate:{
             width:"100vw",
             transition:{
-                duration:0.45,
+                duration:0.25,
                 ease:"linear",
-                staggerChildren:0.3,
-                delayChildren:0.1,
+                staggerChildren:0.1,
+                delayChildren:0.05,
             }
         },
         exit: {
             width: "0vw",
             transition: {
-                duration: 0.2,
+                duration: 0.1,
                 ease: "linear",
                 staggerChildren: 0.1,
                 delay:0.35
