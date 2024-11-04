@@ -2,6 +2,7 @@ import React from "react";
 import { Menu, Carousel, Card } from "antd";
 import { Link } from "react-router-dom";
 import { iphone, laptop, skincare, perfume } from "../../../public/imgae"; // Ensure these paths are correct
+import { retry } from "@reduxjs/toolkit/query";
 
 const products = [
   {
@@ -60,28 +61,20 @@ const menuItems = [
 const Hero = () => {
   return (
     <div className="w-full max-h-[40vh] flex max-md:justify-center mt-4">
-      {/* Menu */}
       <div className="w-1/4 max-md:hidden block">
         <Menu mode="inline" items={menuItems} />
       </div>
-
-      <div className="w-3/4 max-md:w-full">
-        {/* <Carousel autoplay>
-          {products.map((product, i) => (
-            <div key={i}>
-              <Card
-                hoverable
-                cover={<img alt={product.name} src={product.src} />}
-                className="w-full h-full flex flex-col justify-between"
-              >
-                <Card.Meta title={product.name} description={product.detail} />
-                <div className="text-center mt-4">
-                  <span className="font-bold text-lg">${product.price.toFixed(2)}</span>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </Carousel> */}
+        <div className="w-3/4 py-8 sm:ml-24 max-md:w-full bg-gray-100">
+        <Carousel autoplay>
+             { products.map(( _ , i)=>{
+              return <div key={ i } className=" flex items-center w-full max-h-[40vh]  md:space-y-6 px-6 overflow-hidden">
+                      <h1 className=" text-3xl font-semibold max-md:text-2xl">{_.name}</h1>
+                      <p className=" text-xl max-md:text-lg">{_.detail}</p>
+                      <p className=" text-4xl text-blue-600 font-bold max-md:text-3xl">${_.price} <span>only</span></p>
+                 
+              </div>
+             })}
+        </Carousel>
       </div>
     </div>
   );
